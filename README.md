@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains my a tech stack.
+This repository is an attempt at recreating an Instagram tech stack. I do this by containerizing a Flask application for development with Docker and Posgres. The production environment intigrates Gunicorn and Nginx.
 
 The following gif is an example of uploading an image to the application and seeing in the browser:  
 
@@ -13,17 +13,24 @@ If you would like to see a clearer version of this gif, it can be found [here](h
 
 ## Build Instructions:
 
-Both Flask and Docker are required to 
+Both Flask and Docker are required to complete this project.
+
+Here we use the default Flask development server.
+
+Now we want to build and run the containers: 
 
 ```
-$ docker-compose -f docker-compose.prod.yml up -d --build
-$ docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
-
+$ docker-compose up --build
 ```
 
 ## Production:
 
+After implementing the production files we need to build the images and run the containers again: 
 
+```
+$ docker-compose -f docker-compose.prod.yml up -d --build
+$ docker-compose -f docker-compose.prod.yml exec web python manage.py create_db
+```
 
 ## Testing:
 
